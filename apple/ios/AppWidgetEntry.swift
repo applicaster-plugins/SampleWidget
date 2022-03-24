@@ -9,6 +9,10 @@
 import Foundation
 import WidgetKit
 
-private struct AppWidgetEntry: TimelineEntry {
-    let date: Date
+public struct AppWidgetEntry: TimelineEntry {
+    public var date: Date
+    
+    public init(date: Date) {
+        self.date = date
+    }
 }

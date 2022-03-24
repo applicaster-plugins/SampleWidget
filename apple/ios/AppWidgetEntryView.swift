@@ -12,9 +12,12 @@ import WidgetKit
 
 public struct AppWidgetEntryView : View {
     var entry: AppWidgetProvider.Entry
-
-    var body: some View {
-        let path = "https://github.com/applicaster-plugins/SampleWidget/blob/48582db871648bb63efc63c026929a5ee40ae760/images/phones.png"
+    public init(entry: AppWidgetProvider.Entry) {
+        self.entry = entry
+    }
+    
+    public var body: some View {
+        let path = "https://raw.githubusercontent.com/applicaster-plugins/SampleWidget/main/images/phones.png"
         URLImageView(url: URL(string: path))
             .aspectRatio(contentMode: .fill)
     }
@@ -25,7 +28,9 @@ struct URLImageView: View {
 
     @ViewBuilder
     var body: some View {
-        if let data = try? Data(contentsOf: url), let uiImage = UIImage(data: data) {
+        if let url = url,
+            let data = try? Data(contentsOf: url),
+            let uiImage = UIImage(data: data) {
             Image(uiImage: uiImage)
                 .resizable()
         } else {
