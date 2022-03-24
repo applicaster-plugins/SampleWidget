@@ -1,0 +1,24 @@
+{
+  "name": "@applicaster/zapp-general-widget-plugin-sample",
+  "version": "0.0.1",
+  "description": "Sample Widget",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/applicaster-plugins/SampleWidget"
+  },
+  "keywords": [
+    "widget"
+  ],
+  "author": "Applicaster",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/applicaster-plugins/SampleWidget"
+  },
+  "homepage": "https://github.com/applicaster-plugins/SampleWidget",
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {},
+  "files": [
+    "apple"
+  ]
+}

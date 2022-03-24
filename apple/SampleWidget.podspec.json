@@ -7,11 +7,11 @@
   },
   "summary": "SampleWidget",
   "description": "SampleWidget",
-  "homepage": "https://github.com/applicaster/Zapp-Frameworks.git",
+  "homepage": "https://github.com/applicaster-plugins/SampleWidget",
   "license": "Appache 2.0",
   "authors": "Applicaster LTD.",
   "source": {
-    "git": "https://github.com/applicaster/Zapp-Frameworks.git",
+    "git": "https://github.com/applicaster-plugins/SampleWidget",
     "tag": "@@applicaster/zapp-general-widget-plugin-sample/0.0.1"
   },
   "requires_arc": true,
