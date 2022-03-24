@@ -1,0 +1,47 @@
+{
+  "api": {
+    "subtype": "general.widget"
+  },
+  "dependency_repository_url": [],
+  "author_name": "Applicaster",
+  "author_email": "zapp@applicaster.com",
+  "name": "Sample Widget",
+  "description": "Sample Widget",
+  "cover_image": "",
+  "type": "general",
+  "identifier": "zapp-general-widget-plugin-sample",
+  "screen": false,
+  "react_native": true,
+  "ui_builder_support": true,
+  "whitelisted_account_ids": [
+    "5ae06cef8fba0f00084bd3c6"
+  ],
+  "min_zapp_sdk": "6.0.0-Dev",
+  "deprecated_since_zapp_sdk": "",
+  "unsupported_since_zapp_sdk": "",
+  "custom_configuration_fields": [
+    {
+      "type": "uploader",
+      "key": "widget_extension_provisioning_profile",
+      "tooltip_text": "Upload Widget Extension Provisioning Profile for Store builds only"
+    }
+  ],
+  "targets": [
+    "mobile"
+  ],
+  "ui_frameworks": [
+    "quickbrick"
+  ],
+  "platform": "ios_for_quickbrick",
+  "manifest_version": "0.0.2",
+  "extra_dependencies": [
+    {
+      "AppWidgetExtension": {
+        "SampleWidget": ":path => './node_modules/@applicaster/zapp-general-widget-plugin-sample/apple/SampleWidget.podspec'"
+      }
+    }
+  ],
+  "npm_dependencies": [
+    "@applicaster/zapp-general-widget-plugin-sample@0.0.2"
+  ]
+}
