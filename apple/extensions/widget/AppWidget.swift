@@ -16,7 +16,7 @@ struct AppWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: AppWidgetProvider()) { entry in
-            URLImageWidgetEntryView(entry: entry)
+            AppWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Sample widget")
         .description("Sample widget")
