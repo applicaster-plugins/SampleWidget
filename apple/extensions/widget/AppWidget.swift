@@ -15,17 +15,17 @@ struct AppWidget: Widget {
     let kind: String = "AppWidget"
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: RanProvider()) { entry in
-            RanWidgetEntryView(entry: entry)
+        StaticConfiguration(kind: kind, provider: AppWidgetProvider()) { entry in
+            URLImageWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Some display name")
-        .description("Some descriptions")
+        .configurationDisplayName("Sample widget")
+        .description("Sample widget")
     }
 }
 
 struct AppWidget_Previews: PreviewProvider {
     static var previews: some View {
-        RanWidgetEntryView(entry: RanEntry(date: Date(), latestNewsModel: sampleNewsModel))
+        AppWidgetEntryView(entry: AppWidgetEntry(date: Date()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
