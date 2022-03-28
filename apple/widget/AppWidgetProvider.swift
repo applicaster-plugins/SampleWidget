@@ -9,16 +9,14 @@
 import Foundation
 import WidgetKit
 
-
 public struct AppWidgetProvider: TimelineProvider {
     var contentUrl: String? {
         return UserDefaults.appGroup?.string(forKey: SharedParams.contentUrl)
     }
-    
-    public init() {
 
+    public init() {
     }
-    
+
     public func placeholder(in context: Context) -> AppWidgetEntry {
         AppWidgetEntry(date: Date())
     }
@@ -30,9 +28,9 @@ public struct AppWidgetProvider: TimelineProvider {
 
     public func getTimeline(in context: Context, completion: @escaping (Timeline<AppWidgetEntry>) -> Void) {
         if let contentUrl = contentUrl {
-            //load content adn define timeline
+            // load content adn define timeline
             ContentLoader.load(with: contentUrl) { content in
-                var entries:[AppWidgetEntry] = []
+                var entries: [AppWidgetEntry] = []
                 if let contentEntries = content?["entries"] as? [[String: Any]] {
                     contentEntries.forEach { contentEntry in
                         if let timeInterval = contentEntry["date"] as? Double {
@@ -43,16 +41,15 @@ public struct AppWidgetProvider: TimelineProvider {
                     }
                 }
 
-                //add single item if empty (optional)
+                // add single item if empty (optional)
                 if entries.isEmpty {
                     entries.append(AppWidgetEntry(date: Date()))
                 }
                 let timeline = Timeline(entries: entries, policy: .atEnd)
                 completion(timeline)
             }
-        }
-        else {
-            //add single item if no content provided (optional)
+        } else {
+            // add single item if no content provided (optional)
             let midnight = Calendar.current.startOfDay(for: Date())
             let nextMidnight = Calendar.current.date(byAdding: .day, value: 1, to: midnight)!
             let entries = [AppWidgetEntry(date: midnight)]
@@ -61,5 +58,3 @@ public struct AppWidgetProvider: TimelineProvider {
         }
     }
 }
-
-

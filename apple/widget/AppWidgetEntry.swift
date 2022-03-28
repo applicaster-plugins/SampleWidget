@@ -11,7 +11,7 @@ import WidgetKit
 
 public struct AppWidgetEntry: TimelineEntry {
     public var date: Date
-    
+
     public init(date: Date) {
         self.date = date
     }

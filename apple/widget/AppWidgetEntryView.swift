@@ -10,12 +10,12 @@ import Foundation
 import SwiftUI
 import WidgetKit
 
-public struct AppWidgetEntryView : View {
+public struct AppWidgetEntryView: View {
     var entry: AppWidgetProvider.Entry
     public init(entry: AppWidgetProvider.Entry) {
         self.entry = entry
     }
-    
+
     public var body: some View {
         let path = "https://raw.githubusercontent.com/applicaster-plugins/SampleWidget/main/images/phones.png"
         URLImageView(url: URL(string: path))
@@ -29,8 +29,8 @@ struct URLImageView: View {
     @ViewBuilder
     var body: some View {
         if let url = url,
-            let data = try? Data(contentsOf: url),
-            let uiImage = UIImage(data: data) {
+           let data = try? Data(contentsOf: url),
+           let uiImage = UIImage(data: data) {
             Image(uiImage: uiImage)
                 .resizable()
         } else {

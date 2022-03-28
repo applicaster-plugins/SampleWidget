@@ -16,13 +16,13 @@ public class ContentLoader {
             completion?(nil)
             return
         }
-        
+
         let request = URLRequest(url: url)
 
-        let task = session.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, _ in
             if let httpResponse = response as? HTTPURLResponse,
                (200 ... 299).contains(httpResponse.statusCode),
-                let data = data {
+               let data = data {
                 let content = convertDataToDictionary(data: data)
                 completion?(content)
             } else {
@@ -31,7 +31,7 @@ public class ContentLoader {
         }
         task.resume()
     }
-    
+
     public class func convertDataToDictionary(data: Data) -> [String: AnyObject]? {
         do {
             let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject]

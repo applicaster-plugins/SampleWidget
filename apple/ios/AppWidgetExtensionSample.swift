@@ -17,11 +17,11 @@ import ZappCore
             static let contentUrl = "content_url"
         }
     }
-    
+
     var contentUrl: String? {
         return configurationJSON?.object(forKey: Params.Plugin.contentUrl) as? String
     }
-    
+
     public required init(pluginModel: ZPPluginModel) {
         model = pluginModel
         configurationJSON = model?.configurationJSON
@@ -33,7 +33,6 @@ import ZappCore
 
     public func prepareProvider(_ defaultParams: [String: Any],
                                 completion: ((_ isReady: Bool) -> Void)?) {
-        
         saveAppGroupParams()
         completion?(true)
     }
@@ -41,12 +40,12 @@ import ZappCore
     public func disable(completion: ((Bool) -> Void)?) {
         completion?(true)
     }
-    
+
     func saveAppGroupParams() {
         guard let contentUrl = contentUrl else {
             return
         }
-        
+
         UserDefaults.appGroup?.set(contentUrl, forKey: SharedParams.contentUrl)
     }
 }

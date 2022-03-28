@@ -12,9 +12,9 @@ extension UserDefaults {
     static var appGroup: UserDefaults? {
         guard let supportedAppGroups = Bundle.main.object(forInfoDictionaryKey: SharedParams.supportedAppGroups) as? [String],
               let firstAppGroup = supportedAppGroups.first else {
-                  return UserDefaults.standard
+            return UserDefaults.standard
         }
-                
+
         return UserDefaults(suiteName: firstAppGroup)
     }
 }
