@@ -1,5 +1,9 @@
 {
   "api": {
+    "class_name": "AppWidgetExtensionSample",
+    "modules": [
+      "SampleWidget"
+    ],
     "subtype": "general.widget"
   },
   "dependency_repository_url": [],
@@ -21,6 +25,12 @@
   "unsupported_since_zapp_sdk": "",
   "custom_configuration_fields": [
     {
+      "type": "text",
+      "key": "content_url",
+      "label": "Content Url",
+      "tooltip_text": "Please provide content feed url for app widget"
+    },
+    {
       "type": "uploader",
       "key": "widget_extension_provisioning_profile",
       "tooltip_text": "Upload Widget Extension Provisioning Profile for Store builds only"
@@ -33,15 +43,18 @@
     "quickbrick"
   ],
   "platform": "ios_for_quickbrick",
-  "manifest_version": "0.0.2",
+  "manifest_version": "0.0.3",
   "extra_dependencies": [
     {
+      "SampleWidget": ":path => './node_modules/@applicaster/zapp-general-widget-plugin-sample/apple/SampleWidget.podspec'"
+    },
+    {
       "AppWidgetExtension": {
-        "SampleWidget": ":path => './node_modules/@applicaster/zapp-general-widget-plugin-sample/apple/SampleWidget.podspec'"
+        "SampleWidget/AppWidgetExtension": ":path => './node_modules/@applicaster/zapp-general-widget-plugin-sample/apple/SampleWidget.podspec'"
       }
     }
   ],
   "npm_dependencies": [
-    "@applicaster/zapp-general-widget-plugin-sample@0.0.2"
+    "@applicaster/zapp-general-widget-plugin-sample@0.0.3"
   ]
 }

@@ -15,15 +15,32 @@
     "tag": "@@applicaster/zapp-general-widget-plugin-sample/0.0.1"
   },
   "requires_arc": true,
+  "default_subspecs": "Base",
   "swift_versions": "5.1",
-  "source_files": "ios/**/*.{swift}",
   "prepare_command": "sh scripts/prepare_widget_extension.sh",
-  "xcconfig": {
-    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
-    "ENABLE_BITCODE": "YES"
-  },
-  "dependencies": {
+  "subspecs": [
+    {
+      "name": "Base",
+      "xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "ENABLE_BITCODE": "YES"
+      },
+      "dependencies": {
+        "ZappCore": []
+      },
+      "source_files": ["ios/**/*.{swift}", "shared/**/*.{swift}"]
+    },
+    {
+      "name": "AppWidgetExtension",
+      "xcconfig": {
+        "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES",
+        "ENABLE_BITCODE": "YES"
+      },
+      "dependencies": {
 
-  },
+      },
+      "source_files": ["widget/**/*.{swift}", "shared/**/*.{swift}"]
+    }
+  ],
   "swift_version": "5.1"
 }
